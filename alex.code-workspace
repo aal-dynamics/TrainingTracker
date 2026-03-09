@@ -1,0 +1,114 @@
+{
+  "folders": [
+    {
+      "name": "Tracker",
+      "path": "Training Tracker"
+    }
+  ],
+  "settings": {
+    "al.codeAnalyzers": [
+      "${CodeCop}",
+      "${UICop}",
+      "${PerTenantExtensionCop}",
+      "${analyzerFolder}BusinessCentral.LinterCop.dll"
+    ],
+    "al.compilationOptions": {
+      "generateReportLayout": true,
+      "outFolder": "..\\.artifacts"
+    },
+    "al.enableCodeAnalysis": true,
+    "al.packageCachePath": [
+      "..\\.alpackages"
+    ],
+    "al.ruleSetPath": "..\\.codeanalysis\\aal.Ruleset.json",
+    "alOutline.codeCleanupActions": [
+      "AddMissingParentheses",
+      "ConvertObjectIdsToNames",
+      "FixIdentifiersCase",
+      "FixKeywordsCase",
+      "MakeFlowFieldsReadOnly",
+      "RemoveBeginEnd",
+      "RemoveEmptyLines",
+      "RemoveEmptyTriggers",
+      "RemoveProceduresSemicolon",
+      "RemoveRedundantAppAreas",
+      "RemoveRedundantDataClassification",
+      "RemoveUnusedVariables",
+      "SortCustomizations",
+      "SortPermissions",
+      "SortPermissionSetList",
+      "SortProperties",
+      "SortReportColumns",
+      "SortTableFields",
+      "SortVariables",
+      "TrimTrailingWhitespace"
+    ],
+    "alOutline.defaultDataClassification": "CustomerContent",
+    "alOutline.defaultRemoveEmptySectionsSettings": {
+      "removeActionGroups": true,
+      "removeActions": true
+    },
+    "alOutline.defaultRemoveEmptyTriggersSettings": {
+      "removeSubscribers": true,
+      "removeTriggers": true
+    },
+    "alOutline.defaultRemoveUnusedVariablesSettings": {
+      "removeGlobalVariables": true,
+      "removeLocalMethodParameters": true,
+      "removeLocalVariables": true
+    },
+    "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternPageCustomizations": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.ObjectNamePrefix": "DYG",
+    "CRS.OnSaveAlFileAction": "Reorganize",
+    "CRS.RemovePrefixFromFilename": true,
+    "CRS.RenameWithGit": true,
+    "launch": {
+      "compounds": [],
+      "configurations": [
+        {
+          "breakOnError": "All",
+          "breakOnRecordWrite": "None",
+          "dependencyPublishingOption": "Ignore",
+          "enableLongRunningSqlStatements": true,
+          "enableSqlInformationDebugger": true,
+          "environmentName": "DYG_TimeTracking",
+          "environmentType": "Sandbox",
+          "launchBrowser": true,
+          "longRunningSqlStatementsThreshold": 500,
+          "name": "DYG TimeTracking DEV Sandbox",
+          "numberOfSqlStatements": 10,
+          "request": "launch",
+          "schemaUpdateMode": "ForceSync",
+          "tenant": "957f07d7-c4bb-4114-af2f-3ad6ce2c5660",
+          "type": "al"
+        },
+        {
+          "authentication": "UserPassword",
+          "breakOnError": "ExcludeTry",
+          "enableLongRunningSqlStatements": true,
+          "enableSqlInformationDebugger": true,
+          "environmentType": "OnPrem",
+          "launchBrowser": true,
+          "name": "bc27",
+          "request": "launch",
+          "schemaUpdateMode": "ForceSync",
+          "server": "http://bc27-saas",
+          "serverInstance": "BC",
+          "startupObjectType": "Page",
+          "tenant": "default",
+          "type": "al",
+          "usePublicURLFromServer": true
+        }
+      ],
+      "version": "0.2.0"
+    },
+    "xliffSync.defaultLanguages": [
+      "de-DE"
+    ],
+    "xliffSync.findBySourceAndDeveloperNote": true,
+    "xliffSync.parseFromDeveloperNote": true,
+    "xliffSync.parseFromDeveloperNoteOverwrite": true
+  }
+}

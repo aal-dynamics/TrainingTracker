@@ -1,0 +1,36 @@
+{
+    "name": "GroupM Ruleset",
+    "description": "Rulesets for GroupM Extension",
+    "rules": [
+        {
+            "id": "AA0005",
+            "action": "None",
+            "justification": "Using BEGIN..END imidiatly when using ELSE-Statement"
+        },
+        {
+            "id": "AA0215",
+            "action": "None",
+            "justification": "File name does not have to contain ObjectNamePrefix: '<ObjectNameExcludingAffix>.<FullTypeName>.al' and '<ObjectNameExcludingAffix>.<FullTypeName>Ext.al' are also valid."
+        },
+        {
+            "id": "AS0092",
+            "action": "None",
+            "justification": "Extension is explicit for Customer \"GroupM\", not for marketplace"
+        },
+        {
+            "id": "AS0084",
+            "action": "None",
+            "justification": "Extension is explicit for Customer \"GroupM\", not for marketplace"
+        },
+        {
+            "id": "DOC0101",
+            "action": "None",
+            "justification": "XML Documentation nicht notwendig"
+        },
+        {
+            "id": "LC0005",
+            "action": "None",
+            "justification": "copiler doesn't care about case sensivity"
+        }
+    ]
+}
