@@ -1,10 +1,10 @@
-page 70004 DYGSessionLinesTT
+page 70004 ALFSessionLinesTT
 {
     ApplicationArea = All;
     AutoSplitKey = true;
     Caption = 'Exercises', Comment = 'de-DE=Übungen';
     PageType = ListPart;
-    SourceTable = DYGSessionLineTT;
+    SourceTable = ALFSessionLineTT;
 
     layout
     {
@@ -12,12 +12,16 @@ page 70004 DYGSessionLinesTT
         {
             repeater(Lines)
             {
-                field("Exercise Code"; Rec.ExerciseCode) { }
-                field("Exercise Name"; Rec.ExerciseName) { Editable = false; }
-                field(Repetitions; Rec.Repetitions) { }
+                field(ExerciseCode; Rec.ExerciseCode) { Visible = false; }
+                field(ExerciseName; Rec.ExerciseName) { Editable = false; }
                 field(Weight; Rec.Weight) { }
-                field(WorkLoad; Rec.WorkLoad) { Editable = false; }
-                field(Notes; Rec.Notes) { }
+                field(Repetitions; Rec.Repetitions) { }
+                field(WorkLoad; Rec.WorkLoad)
+                {
+                    Editable = false;
+                    Visible = false;
+                }
+                field(Notes; Rec.Notes) { Visible = false; }
             }
         }
     }

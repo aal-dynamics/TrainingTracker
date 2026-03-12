@@ -1,10 +1,10 @@
-page 70002 DYGSessionListTT
+page 70002 ALFSessionListTT
 {
     ApplicationArea = All;
     Caption = 'Training Sessions', Comment = 'de-DE=Trainingseinheiten';
-    CardPageId = DYGSessionCardTT;
+    CardPageId = ALFSessionCardTT;
     PageType = List;
-    SourceTable = DYGSessionTT;
+    SourceTable = ALFSessionTT;
     UsageCategory = Lists;
 
     layout
@@ -17,15 +17,12 @@ page 70002 DYGSessionListTT
                 field(Description; Rec.Description) { }
                 field(TotalWorkLoad; Rec.TotalWorkLoad)
                 {
-                    Caption = 'Total Work Load', Comment = 'de-DE=Gesamte Arbeitsleistung';
-                    ToolTip = 'Total work load of all exercises in this session.', Comment = 'de-DE=Gesamte Arbeitsleistung aller Übungen in dieser Trainingseinheit.';
-
                     trigger OnDrillDown()
                     var
-                        SessionLine: Record DYGSessionLineTT;
+                        SessionLine: Record ALFSessionLineTT;
                     begin
                         SessionLine.SetRange(SessionDate, Rec.Date);
-                        Page.Run(Page::DYGSessionLinesTT, SessionLine);
+                        Page.Run(Page::ALFSessionLinesTT, SessionLine);
                     end;
                 }
             }
@@ -38,19 +35,23 @@ page 70002 DYGSessionListTT
         {
             action(NewSession)
             {
-                ApplicationArea = All;
                 Caption = 'New Training Session', Comment = 'de-DE=Neue Trainingseinheit';
                 Image = New;
                 ToolTip = 'Creates a new training session for today.', Comment = 'de-DE=Erstellt eine neue Trainingseinheit für heute.';
 
                 trigger OnAction()
                 var
-                    Session: Record DYGSessionTT;
-                    SessionCard: Page DYGSessionCardTT;
+                    Session: Record ALFSessionTT;
+                    ALFDateInputDialogTT: Page ALFDateInputDialogTT;
+                    SessionCard: Page ALFSessionCardTT;
                 begin
+                    if ALFDateInputDialogTT.RunModal() <> Action::LookupOK then
+                        exit;
+
                     Session.Init();
-                    Session.Date := Today();
+                    Session.Date := ALFDateInputDialogTT.GetDate();
                     Session.Insert(true);
+
                     SessionCard.SetRecord(Session);
                     SessionCard.Run();
                 end;
@@ -60,10 +61,9 @@ page 70002 DYGSessionListTT
         {
             action(Exercises)
             {
-                ApplicationArea = All;
                 Caption = 'Exercise Catalog', Comment = 'de-DE=Übungskatalog';
                 Image = Item;
-                RunObject = page DYGExerciseListTT;
+                RunObject = page ALFExerciseListTT;
                 ToolTip = 'Opens the exercise catalog for managing exercises.', Comment = 'de-DE=Öffnet den Übungskatalog zum Verwalten der Übungen.';
             }
         }

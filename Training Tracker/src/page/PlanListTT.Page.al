@@ -1,11 +1,11 @@
-page 70005 DYGPlanListTT
+page 70005 ALFPlanListTT
 {
     ApplicationArea = All;
     Caption = 'Training Plans', Comment = 'de-DE=Trainingspläne';
-    CardPageId = DYGPlanCardTT;
+    CardPageId = ALFPlanCardTT;
     PageType = List;
-    SourceTable = DYGPlanTT;
-    UsageCategory = Administration;
+    SourceTable = ALFPlanTT;
+    UsageCategory = Lists;
 
     layout
     {

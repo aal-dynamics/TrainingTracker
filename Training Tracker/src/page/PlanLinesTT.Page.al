@@ -1,10 +1,10 @@
-page 70006 DYGPlanLinesTT
+page 70006 ALFPlanLinesTT
 {
     ApplicationArea = All;
     AutoSplitKey = true;
     Caption = 'Training Plan Lines', Comment = 'de-DE=Trainingsplan Zeilen';
     PageType = ListPart;
-    SourceTable = DYGPlanLineTT;
+    SourceTable = ALFPlanLineTT;
 
     layout
     {
@@ -12,9 +12,10 @@ page 70006 DYGPlanLinesTT
         {
             repeater(Lines)
             {
-                field("Exercise Code"; Rec.ExerciseCode) { }
-                field("Exercise Name"; Rec.ExerciseName) { Editable = false; }
-                field(Sets; Rec.Sets) { }
+                field(ExerciseCode; Rec.ExerciseCode) { }
+                field(ExerciseName; Rec.ExerciseName) { Editable = false; }
+                field(ExerciseGroup; Rec.ExerciseGroup) { }
+                field(Sets; Rec.Rounds) { }
                 field(Repetitions; Rec.Repetitions) { }
                 field(Weight; Rec.Weight) { }
             }

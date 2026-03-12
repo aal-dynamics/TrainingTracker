@@ -1,4 +1,4 @@
-enum 70000 DYGExerciseCategoryTT
+enum 70000 ALFExerciseCategoryTT
 {
     Extensible = true;
 
@@ -9,6 +9,8 @@ enum 70000 DYGExerciseCategoryTT
     value(50; UpperBodyPull) { Caption = 'Upper Body Pull', Comment = 'de-DE=OK Ziehend'; }
     value(60; LowerBodyPush) { Caption = 'Lower Body Push', Comment = 'de-DE=UK Drückend'; }
     value(70; LowerBodyPull) { Caption = 'Lower Body Pull', Comment = 'de-DE=UK Ziehend'; }
+    value(80; Stability) { Caption = 'Stability', Comment = 'de-DE=Stabilität'; }
+    value(90; Mobility) { Caption = 'Mobility', Comment = 'de-DE=Beweglichkeit'; }
 
     value(100; Cardio) { Caption = 'Cardio', Comment = 'de-DE=Kardio'; }
 

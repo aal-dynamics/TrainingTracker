@@ -60,7 +60,7 @@
     "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
     "CRS.FileNamePatternExtensions": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
     "CRS.FileNamePatternPageCustomizations": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
-    "CRS.ObjectNamePrefix": "DYG",
+    "CRS.ObjectNamePrefix": "ALF",
     "CRS.OnSaveAlFileAction": "Reorganize",
     "CRS.RemovePrefixFromFilename": true,
     "CRS.RenameWithGit": true,
@@ -104,9 +104,12 @@
       ],
       "version": "0.2.0"
     },
+    "xliffSync.baseFile": "Training Tracker.g.xlf",
     "xliffSync.defaultLanguages": [
-      "de-DE"
+      "en-US"
     ],
+    "xliffSync.developerNoteDesignation": "de-DE",
+    "xliffSync.buildCommandToExecute": "al.package",
     "xliffSync.findBySourceAndDeveloperNote": true,
     "xliffSync.parseFromDeveloperNote": true,
     "xliffSync.parseFromDeveloperNoteOverwrite": true

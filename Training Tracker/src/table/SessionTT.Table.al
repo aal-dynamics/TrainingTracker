@@ -1,15 +1,18 @@
-table 70001 DYGSessionTT
+table 70001 ALFSessionTT
 {
-    Caption = 'TrainingSession', Comment = 'de-DE=Trainingseinheit';
+    AllowInCustomizations = AsReadWrite;
+    Caption = 'Training Session', Comment = 'de-DE=Trainingseinheit';
     DataClassification = CustomerContent;
-    DrillDownPageId = DYGSessionListTT;
-    LookupPageId = DYGSessionListTT;
+    DrillDownPageId = ALFSessionListTT;
+    Extensible = true;
+    LookupPageId = ALFSessionListTT;
 
     fields
     {
         field(2; "Date"; Date)
         {
             Caption = 'Date', Comment = 'de-DE=Datum';
+            NotBlank = true;
             ToolTip = 'Specifies the date of the training session.', Comment = 'de-DE=Datum der Trainingseinheit.';
         }
         field(3; Description; Text[250])
@@ -19,7 +22,7 @@ table 70001 DYGSessionTT
         }
         field(10; TotalWorkLoad; Decimal)
         {
-            CalcFormula = sum(DYGSessionLineTT.WorkLoad where(SessionDate = field(Date)));
+            CalcFormula = sum(ALFSessionLineTT.WorkLoad where(SessionDate = field(Date)));
             Caption = 'Total Work Load', Comment = 'de-DE=Gesamte Arbeitsleistung';
             DecimalPlaces = 0 : 2;
             Editable = false;

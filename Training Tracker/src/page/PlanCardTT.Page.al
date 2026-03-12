@@ -1,9 +1,10 @@
-page 70007 DYGPlanCardTT
+page 70007 ALFPlanCardTT
 {
     ApplicationArea = All;
     Caption = 'Training Plan', Comment = 'de-DE=Trainingsplan';
     PageType = Card;
-    SourceTable = DYGPlanTT;
+    SourceTable = ALFPlanTT;
+    UsageCategory = Tasks;
 
     layout
     {
@@ -16,7 +17,7 @@ page 70007 DYGPlanCardTT
                 field(Name; Rec.Name) { }
                 field(Description; Rec.Description) { }
             }
-            part(Lines; DYGPlanLinesTT)
+            part(Lines; ALFPlanLinesTT)
             {
                 Caption = 'Exercises', Comment = 'de-DE=Übungen';
                 SubPageLink = PlanCode = field(Code);

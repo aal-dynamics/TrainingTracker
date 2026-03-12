@@ -1,9 +1,11 @@
-table 70003 DYGPlanTT
+table 70003 ALFPlanTT
 {
+    AllowInCustomizations = AsReadWrite;
     Caption = 'Training Plan', Comment = 'de-DE=Trainingsplan';
     DataClassification = CustomerContent;
-    DrillDownPageId = DYGPlanListTT;
-    LookupPageId = DYGPlanListTT;
+    DrillDownPageId = ALFPlanListTT;
+    Extensible = true;
+    LookupPageId = ALFPlanListTT;
 
     fields
     {

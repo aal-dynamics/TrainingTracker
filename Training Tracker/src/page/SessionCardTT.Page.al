@@ -1,11 +1,11 @@
-page 70003 DYGSessionCardTT
+page 70003 ALFSessionCardTT
 {
     ApplicationArea = All;
     Caption = 'Training Session', Comment = 'de-DE=Trainingseinheit';
-    PageType = Card;
-    SourceTable = DYGSessionTT;
-    UsageCategory = Tasks;
     DelayedInsert = true;
+    PageType = Card;
+    SourceTable = ALFSessionTT;
+    UsageCategory = Tasks;
 
     layout
     {
@@ -22,19 +22,16 @@ page 70003 DYGSessionCardTT
                 Caption = 'Statistics', Comment = 'de-DE=Statistik';
                 field(TotalWorkLoad; Rec.TotalWorkLoad)
                 {
-                    Caption = 'Total Work Load', Comment = 'de-DE=Gesamte Arbeitsleistung';
-                    ToolTip = 'Specifies Total work load of all exercises (Repetitions x Weight).', Comment = 'de-DE=Gesamte Arbeitsleistung aller Übungen (Wiederholungen x Gewicht).';
-
                     trigger OnDrillDown()
                     var
-                        SessionLine: Record DYGSessionLineTT;
+                        SessionLine: Record ALFSessionLineTT;
                     begin
                         SessionLine.SetRange(SessionDate, Rec.Date);
-                        Page.Run(Page::DYGSessionLinesTT, SessionLine);
+                        Page.Run(Page::ALFSessionLinesTT, SessionLine);
                     end;
                 }
             }
-            part(Lines; DYGSessionLinesTT)
+            part(Lines; ALFSessionLinesTT)
             {
                 Caption = 'Exercises', Comment = 'de-DE=Übungen';
                 SubPageLink = SessionDate = field(Date);
@@ -50,14 +47,14 @@ page 70003 DYGSessionCardTT
             {
                 Caption = 'Exercise Catalog', Comment = 'de-DE=Übungskatalog';
                 Image = Item;
-                RunObject = page DYGExerciseListTT;
+                RunObject = page ALFExerciseListTT;
                 ToolTip = 'Öffnet den Übungskatalog.', Comment = 'de-DE=Öffnet den Übungskatalog.';
             }
             action(TrainingPlans)
             {
                 Caption = 'Training Plans', Comment = 'de-DE=Trainingspläne';
                 Image = Template;
-                RunObject = page DYGPlanListTT;
+                RunObject = page ALFPlanListTT;
                 ToolTip = 'Opens the list of training plans.', Comment = 'de-DE=Öffnet die Liste der Trainingspläne.';
             }
         }
@@ -65,47 +62,15 @@ page 70003 DYGSessionCardTT
         {
             action(CopyFromPlan)
             {
-                ApplicationArea = All;
                 Caption = 'Copy from Training Plan', Comment = 'de-DE=Aus Trainingsplan kopieren';
                 Image = Copy;
                 ToolTip = 'Copies the exercises from a training plan into this session.', Comment = 'de-DE=Kopiert die Übungen eines Trainingsplans in diese Trainingseinheit.';
 
                 trigger OnAction()
                 var
-                    DYGCreateSessionFromPlanTT: Codeunit DYGCreateSessionFromPlanTT;
+                    ALFCreateSessionFromPlanTT: Codeunit ALFCreateSessionFromPlanTT;
                 begin
-                    // if Rec.Date = 0D then
-                    //     Error('Please specify the session date first.');
-
-                    // if Page.RunModal(Page::DYGPlanListTT, TrainingPlan) <> Action::LookupOK then
-                    //     exit;
-
-                    // PlanLine.SetRange(PlanCode, TrainingPlan.Code);
-                    // if not PlanLine.FindSet() then
-                    //     exit;
-
-                    // SessionLine.SetRange(SessionDate, Rec.Date);
-                    // if SessionLine.FindLast() then
-                    //     LastLineNo := SessionLine.LineNo
-                    // else
-                    //     LastLineNo := 0;
-
-                    // repeat
-                    //     if PlanLine.Sets <= 0 then
-                    //         PlanLine.Sets := 1;
-                    //     for SetNo := 1 to PlanLine.Sets do begin
-                    //         LastLineNo += 10000;
-                    //         SessionLine.Init();
-                    //         SessionLine.SessionDate := Rec.Date;
-                    //         SessionLine.LineNo := LastLineNo;
-                    //         SessionLine.ExerciseCode := PlanLine.ExerciseCode;
-                    //         SessionLine.ExerciseName := PlanLine.ExerciseName;
-                    //         SessionLine.Repetitions := PlanLine.Repetitions;
-                    //         SessionLine.Weight := PlanLine.Weight;
-                    //         SessionLine.Insert(true);
-                    //     end;
-                    // until PlanLine.Next() = 0;
-                    DYGCreateSessionFromPlanTT.CreateSessionFromPlan(Rec, false);
+                    ALFCreateSessionFromPlanTT.CreateSessionFromPlan(Rec, false);
 
                     CurrPage.Update(false);
                 end;

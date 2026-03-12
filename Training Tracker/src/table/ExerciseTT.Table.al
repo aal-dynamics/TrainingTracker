@@ -1,9 +1,11 @@
-table 70000 DYGExerciseTT
+table 70000 ALFExerciseTT
 {
+    AllowInCustomizations = AsReadWrite;
     Caption = 'Exercise', Comment = 'de-DE=Übung';
     DataClassification = CustomerContent;
-    DrillDownPageId = DYGExerciseListTT;
-    LookupPageId = DYGExerciseListTT;
+    DrillDownPageId = ALFExerciseListTT;
+    Extensible = true;
+    LookupPageId = ALFExerciseListTT;
 
     fields
     {
@@ -19,7 +21,7 @@ table 70000 DYGExerciseTT
             NotBlank = true;
             ToolTip = 'Specifies the name of the exercise.', Comment = 'de-DE=Name der Übung.';
         }
-        field(3; Category; Enum DYGExerciseCategoryTT)
+        field(3; Category; Enum ALFExerciseCategoryTT)
         {
             Caption = 'Category', Comment = 'de-DE=Kategorie';
             ToolTip = 'Specifies the muscle group or category.', Comment = 'de-DE=Muskelgruppe / Kategorie.';

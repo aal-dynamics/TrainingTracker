@@ -1,10 +1,10 @@
-page 70000 DYGExerciseListTT
+page 70000 ALFExerciseListTT
 {
     ApplicationArea = All;
     Caption = 'Exercises', Comment = 'de-DE=Übungen';
-    CardPageId = DYGExerciseCardTT;
+    CardPageId = ALFExerciseCardTT;
     PageType = List;
-    SourceTable = DYGExerciseTT;
+    SourceTable = ALFExerciseTT;
     UsageCategory = Lists;
 
     layout
@@ -15,8 +15,9 @@ page 70000 DYGExerciseListTT
             {
                 field("Code"; Rec.Code) { }
                 field(Name; Rec.Name) { }
-                field(Category; Rec.Category) { }
+                field(Category; Rec.Category) { Width = 20; }
                 field(Description; Rec.Description) { }
+                field(EachSide; Rec.EachSide) { }
             }
         }
     }
@@ -27,10 +28,9 @@ page 70000 DYGExerciseListTT
         {
             action(TrainingSessions)
             {
-                ApplicationArea = All;
                 Caption = 'Training Sessions', Comment = 'de-DE=Trainingseinheiten';
                 Image = WorkCenter;
-                RunObject = page DYGSessionListTT;
+                RunObject = page ALFSessionListTT;
                 ToolTip = 'Öffnet die Liste aller Trainingseinheiten.';
             }
         }

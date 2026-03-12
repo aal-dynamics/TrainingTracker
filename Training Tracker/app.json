@@ -6,7 +6,8 @@
   "EULA": "",
   "features": [
     "NoImplicitWith",
-    "TranslationFile"
+    "TranslationFile",
+    "GenerateCaptions"
   ],
   "help": "",
   "id": "3eeaa482-70c3-4bf9-be53-84cb353df5ce",

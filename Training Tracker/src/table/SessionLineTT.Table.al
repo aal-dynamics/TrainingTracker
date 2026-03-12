@@ -1,36 +1,41 @@
-table 70002 DYGSessionLineTT
+table 70002 ALFSessionLineTT
 {
-    Caption = 'Trainingseinheit Zeile';
+    AllowInCustomizations = AsReadWrite;
+    Caption = 'Training Session Line', Comment = 'de-DE=Trainingseinheit Zeile';
     DataClassification = CustomerContent;
+    Extensible = true;
+
+    Permissions =
+        tabledata ALFExerciseTT = R;
 
     fields
     {
         field(1; SessionDate; Date)
         {
             Caption = 'Session Entry No.', Comment = 'de-DE=Trainingseinheit Lfd. Nr.';
-            TableRelation = DYGSessionTT.Date;
+            TableRelation = ALFSessionTT.Date;
             ToolTip = 'Specifies the entry number of the training session.', Comment = 'de-DE=Lfd. Nr. der Trainingseinheit.';
+            AllowInCustomizations = Never;
         }
         field(2; LineNo; Integer)
         {
             Caption = 'Line No.', Comment = 'de-DE=Zeilennr.';
             ToolTip = 'Specifies the line number.', Comment = 'de-DE=Zeilennummer.';
+            AllowInCustomizations = Never;
         }
         field(3; ExerciseCode; Code[20])
         {
             Caption = 'Exercise Code', Comment = 'de-DE=Übungscode';
-            TableRelation = DYGExerciseTT.Code;
+            TableRelation = ALFExerciseTT.Code;
             ToolTip = 'Specifies the code of the exercise.', Comment = 'de-DE=Code der Übung.';
 
             trigger OnValidate()
             var
-                Exercise: Record DYGExerciseTT;
+                Exercise: Record ALFExerciseTT;
             begin
-                if Rec.ExerciseCode <> '' then begin
-                    Exercise.Get(Rec.ExerciseCode);
+                Rec.ExerciseName := '';
+                if Exercise.Get(Rec.ExerciseCode) then
                     Rec.ExerciseName := Exercise.Name;
-                end else
-                    Rec.ExerciseName := '';
             end;
         }
         field(4; ExerciseName; Text[100])
